@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  productsApi:'https://fakestoreapi.com/products'
 };
