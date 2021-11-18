@@ -11,20 +11,15 @@ import { AuthService } from './shared-service/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'E-Commerce';
-  isLoading:boolean;
   lang:string;
   constructor(private authService:AuthService,private busyService:BusyService,
     private translate :TranslateService) {
-
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.authService.autoLogin()
     this.langInit()      
-    this.busyService.getLoadingStatus().subscribe((status)=>{
-      this.isLoading=status
-    })
   }
   selectLanguage(event){
     this.translate.use(event.target.value)

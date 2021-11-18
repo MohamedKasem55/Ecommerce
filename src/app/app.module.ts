@@ -17,7 +17,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoadingInterceptor } from './core/interceptors/loading/loading.interceptor';
 //import { RatingModule } from 'ng-starrating';
 //import { NgxStarRatingModule } from 'ngx-star-rating';
-//import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from "ngx-spinner";
  
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -44,7 +44,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
     Ng2SearchPipeModule,
     //RatingModule,
     //NgxStarRatingModule,
-    //NgxSpinnerModule,
+    NgxSpinnerModule,
      TranslateModule.forRoot({
       defaultLanguage:'en',
       loader: {
