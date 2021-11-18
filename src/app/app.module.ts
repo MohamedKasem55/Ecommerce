@@ -9,7 +9,7 @@ import { UserProductsPageComponent } from './pages/user-products-page/user-produ
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginComponent } from './reusable-components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from'@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from'@angular/common/http';
 import { ProductCardComponent } from './reusable-components/product-card/product-card.component'
 import { NgxPaginationModule } from 'ngx-pagination';
 import {FilterSearchModule} from 'ng-filter-search';
@@ -18,10 +18,6 @@ import { LoadingInterceptor } from './core/interceptors/loading/loading.intercep
 //import { RatingModule } from 'ng-starrating';
 //import { NgxStarRatingModule } from 'ngx-star-rating';
 //import { NgxSpinnerModule } from "ngx-spinner";
- 
-import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
 
 @NgModule({
   declarations: [
@@ -45,14 +41,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
     //RatingModule,
     //NgxStarRatingModule,
     //NgxSpinnerModule,
-     TranslateModule.forRoot({
-      defaultLanguage:'en',
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  }) 
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
@@ -60,8 +48,3 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
- export function HttpLoaderFactory (http:HttpClient):TranslateHttpLoader  {
-
-  return new TranslateHttpLoader(http);
-  }
- 

@@ -37,9 +37,8 @@ export class UserProductsPageComponent implements OnInit {
   }
   onCategoryChange(sval: string): void {
     // Use filterSearch() function to filter the data
-    if(sval==="all")
-    this.allProducts=this.clonerArr;
-    else
+    console.log(sval,this.clonerArr,this.searchMap);
+    
     this.allProducts =  this.fs.filterSearch(sval, this.clonerArr, this.searchMap);
     console.log(this.allProducts);
     

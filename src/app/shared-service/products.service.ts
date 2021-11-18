@@ -23,6 +23,6 @@ export class ProductsService {
     return this.http.post(`${environment.productsApi}`,JSON.stringify(product))
    }
    editProduct(product){
-    return this.http.patch(`${environment.productsApi}/${product.id}`,JSON.stringify(product))
+    return this.http.put(`${environment.productsApi}/${product.id}`,JSON.stringify(product))
    }
 }

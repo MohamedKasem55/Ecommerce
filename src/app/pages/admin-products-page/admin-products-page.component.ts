@@ -14,19 +14,16 @@ export class AdminProductsPageComponent implements OnInit {
   productForm:FormGroup;
   mode:string;
   previewImage:string;
-  totalRecords:number
-  page:number;
   constructor(private productsService:ProductsService,private formBuilder:FormBuilder) {
     this.productFormInit();
     this.mode='New Product';
     this.previewImage='';
-    this.page=1
    }
 
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe((products:Array<Product>)=>{
       this.allProducts=products
-      this.totalRecords=products.length;     
+      console.log(this.allProducts);
 
     })
   }

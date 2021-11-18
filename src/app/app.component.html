@@ -1,33 +1,15 @@
 <!-- <ngx-spinner></ngx-spinner>
  -->
-
-<div [ngStyle]="{'display':isLoading?'flex':'none' }" style="
-    justify-content: center;
-    align-items: center;
-    font-size: 300px;
-    height: 100vh;
-  ">
-        <div class="spinner-border text-secondary" role="status">
+<div [ngStyle]="{display: isLoading? 'flex':'none'}"
+ style="justify-content: center;align-items: center; font-size: 300px;height: 100vh;" >
+        <div   class="spinner-border text-secondary" role="status"  >
                 <span class="visually-hidden">Loading...</span>
-        </div>
+              </div>
+</div>
+<div class="wrapper" [ngStyle]="{display: isLoading? 'none': 'block' }">
+
+        <router-outlet></router-outlet>
 </div>
 
-<div [ngStyle]="{'display':isLoading?'none':'block'}">
-        <div [ngStyle]="{ direction: lang === 'ar' ? 'rtl' : 'ltr' }">
-                <div class="langwrapper">
-                        <div class="overlay">
-                                <select (change)="selectLanguage($event)">
-                                        <option selected hidden>
-                                                {{ lang === "ar" ? "العربيه" : "English" }}
-                                        </option>
-                                        <option value="en" *ngIf="lang === 'ar'">English</option>
-                                        <option value="ar" *ngIf="lang === 'en'">العربيه</option>
-                                </select>
-                        </div>
-                </div>
 
-                <div class="wrapper">
-                        <router-outlet></router-outlet>
-                </div>
-        </div>
-</div>
+
