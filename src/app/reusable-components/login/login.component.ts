@@ -8,7 +8,8 @@ import { AuthService } from 'src/app/shared-service/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm:FormGroup
+  loginForm:FormGroup;
+  errorMessage:string
   constructor(private formBuilder:FormBuilder,private authService:AuthService) { 
     this.loginFormInit()
   }
@@ -21,8 +22,8 @@ export class LoginComponent implements OnInit {
     try {
       this.authService.login(username,password)
     } catch (error) {
-      console.log(error.message);
-    }
+        this.errorMessage=error;
+      }
   }
   loginFormInit(){
     this.loginForm=this.formBuilder.group({
