@@ -25,11 +25,14 @@
       </td>
       <td>{{product.price}}$</td>
       <td class="tablet">{{product.category}}</td>
-      <td class="tablet">
-        <!--    <star-rating value={{product.rating.rate}} totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" readonly="true" ></star-rating>
-             <ngx-star-rating [formControlName]="product.rating.rate" [id]="'rating'"></ngx-star-rating>
-            <ngx-star-rating [value]="product.rating.rate"  [id]="'rating'"></ngx-star-rating> -->
+      <td class="tablet" style="width: 20px;">
+        <!--         <ngx-star-rating [(ngModel)]="product.rating.rate" [id]="product.id" [disabled]="true">
+        </ngx-star-rating> -->
+        <!--  <star-rating (rate)="onRate($event)" value='5' totalstars="5" checkedcolor="red" uncheckedcolor="black"
+          size="24px" readonly="false">
+        </star-rating> -->
         {{product.rating.rate}}
+
       </td>
       <td class="laptop-show">{{product.description|slice:0:100}}...</td>
       <td>

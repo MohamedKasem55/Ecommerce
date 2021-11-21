@@ -1,6 +1,6 @@
 <ngx-spinner></ngx-spinner>
 <div [ngStyle]="{ direction: lang === 'ar' ? 'rtl' : 'ltr' }">
-        <div class="langwrapper">
+<!--         <div class="langwrapper">
                 <div class="overlay">
                         <select (change)="selectLanguage($event)">
                                 <option selected hidden>
@@ -10,7 +10,7 @@
                                 <option value="ar" *ngIf="lang === 'en'">العربيه</option>
                         </select>
                 </div>
-        </div>
+        </div> -->
 
         <div class="wrapper">
                 <router-outlet></router-outlet>

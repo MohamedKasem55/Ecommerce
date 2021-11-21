@@ -26,6 +26,8 @@ export class AdminProductsPageComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe((products:Array<Product>)=>{
       this.allProducts=products
+      console.log(this.allProducts);
+      
       this.totalRecords=products.length;     
 
     })
@@ -72,5 +74,8 @@ export class AdminProductsPageComponent implements OnInit {
    addProduct(){
      this.productFormInit();
      this.previewImage='';
+   }
+   onRate($event){
+     
    }
 }

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   lang:string;
   constructor(private authService:AuthService,private busyService:BusyService,
     private translate :TranslateService) {
+      
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

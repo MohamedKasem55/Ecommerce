@@ -15,12 +15,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {FilterSearchModule} from 'ng-filter-search';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoadingInterceptor } from './core/interceptors/loading/loading.interceptor';
-//import { RatingModule } from 'ng-starrating';
-//import { NgxStarRatingModule } from 'ngx-star-rating';
+import { RatingModule } from 'ng-starrating';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 import { NgxSpinnerModule } from "ngx-spinner";
  
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -42,8 +44,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
     NgxPaginationModule,
     FilterSearchModule,
     Ng2SearchPipeModule,
-    //RatingModule,
-    //NgxStarRatingModule,
+    RatingModule,
+    NgxStarRatingModule,
     NgxSpinnerModule,
      TranslateModule.forRoot({
       defaultLanguage:'en',
@@ -52,7 +54,13 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  }) 
+  }),
+     ServiceWorkerModule.register('ngsw-worker.js', {
+       enabled: environment.production,
+       // Register the ServiceWorker as soon as the app is stable
+       // or after 30 seconds (whichever comes first).
+       registrationStrategy: 'registerWhenStable:30000'
+     }) 
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
